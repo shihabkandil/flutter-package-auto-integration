@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+import 'features/project_selection/data/folder_repository.dart';
+import 'features/project_selection/data/i_folder_repository.dart';
+import 'features/project_selection/presentation/project_picker_screen.dart';
+
+Future<void> main() async {
+  await setupInjector();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Project Package Automation',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+      ),
+      home: ProjectPickerScreen(),
+    );
+  }
+}
+
+final getIt = GetIt.instance;
+
+Future<void> setupInjector() async {
+  getIt.registerSingleton<IFolderRepository>(FolderRepository());
+
+  await getIt.allReady();
+}
