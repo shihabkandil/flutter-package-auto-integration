@@ -53,4 +53,12 @@ class ProjectPickerCubit extends Cubit<ProjectPickerState> {
     }
     return null;
   }
+
+  bool validate() {
+    if (state is! ProjectPickerSuccess) {
+      emit(ProjectPickerError('Please select a Flutter project folder'));
+      return false;
+    }
+    return true;
+  }
 }
