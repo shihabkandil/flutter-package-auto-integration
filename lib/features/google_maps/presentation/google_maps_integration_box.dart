@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/widgets/loading_indicator.dart';
 import '../cubits/google_maps_integration_cubit/google_maps_integration_cubit.dart';
 import '../data/models/google_maps_platform_config.dart';
-import 'ui_utils.dart';
+import 'google_maps_ui_utils.dart';
 
 class GoogleMapsIntegrationBox extends StatelessWidget {
   const GoogleMapsIntegrationBox({super.key, required this.projectPath});
